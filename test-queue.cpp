@@ -1,3 +1,5 @@
+#include <assert.h>
+
 #include "object.h"
 #include "queue.h"
 #include "string.h"
@@ -8,67 +10,11 @@ void test_string_length() {
     assert(s1->length() == 0);
     delete s1;
     String* s2 = new String("abc");
-    assert(s->length() == 3);
+    assert(s2->length() == 3);
     delete s2;
 }
 
-// Tests for String->char_at
-void test_string_char_at() {
-    String* s1 = new String("abc");
-    assert(s1->char_at(0) == "a");
-    delete s1;
-    // Will crash for s1->char_at(4)
-}
-
-// Tests for String->concat
-void test_string_concat() {
-    String* s1 = new String("abc");
-    String* s2 = new String("xyz");
-    String* s3 = s1->concat(s2);
-    String expected = new String("abcxyz");
-    assert(s3.equals(expected));
-    delete s1;
-    delete s2;
-    delete s3;
-    delete expected;
-}
-
-// Tests for String->substring
-void test_string_substring() {
-    String* s1 = new String("abcxyz");
-    String* s2 = s1->substring(1, 4) String expected = new String("bcx");
-    assert(s2.equals(expected));
-    delete s1;
-    delete s2;
-    delete expected;
-}
-
-// Tests for String->compare
-void test_string_compare() {
-    String* s1 = new String("abc");
-    String* s2 = new String("xyz");
-    String* s3 = new String("abc");
-    assert(s1->compare(s2) < 0);
-    assert(s2->compare(s1) > 0);
-    assert(s1->compare(s3) == 0);
-    delete s1;
-    delete s2;
-    delete s3;
-}
-// Tests for String->compare_ignore_case
-void test_string_compare_ignore_case() {
-    String* s1 = new String("abc");
-    String* s2 = new String("xyz");
-    String* s3 = new String("ABC");
-    assert(s1->compare_ignore_case(s2) < 0);
-    assert(s2->compare_ignore_case(s1) > 0);
-    assert(s1->compare_ignore_case(s3) == 0);
-    delete s1;
-    delete s2;
-    delete s3;
-}
-
-// Tests for String->equals
+// Tests for String->equals and String->hash
 void test_string_equals_hash() {
     String* s1 = new String("abc");
     String* s2 = new String("abc");
@@ -140,11 +86,6 @@ void test_queue() {
 
 int main(int argc, char** argv) {
     test_string_length();
-    test_string_char_at();
-    test_string_concat();
-    test_string_substring();
-    test_string_compare();
-    test_string_compare_ignore_case();
     test_string_equals_hash();
     test_queue();
 
