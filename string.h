@@ -11,6 +11,25 @@
 class String : public Object {
    public:
     /**
+     * Construct a new string given a pointer to a mutable array of characters.
+     * Creates a copy of the data in c.
+     * @param c a pointer to an array of characters.
+     */
+    String(char* c);
+
+    /**
+     * Construct a new string given a pointer to an immutable array of characters.
+     * Creates a copy of the data in c.
+     * @param c a pointer to an array of characters.
+     */
+    String(const char* c);
+
+    /**
+     * A destructor, which deletes the data in this String.
+     */
+    ~String();
+
+    /**
      * Get the length of this String.
      * @return the length of this String.
      */
