@@ -18,7 +18,7 @@ class Object {
     /**
      * Deletes this object and any data it contains.
      */
-    ~Object();
+    virtual ~Object();
 
     /**
      *  Check if this objec "equals" another"
