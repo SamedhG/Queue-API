@@ -11,6 +11,16 @@
 class Object {
   public:
     /**
+     * Constructs a new Object.
+     */
+    Object();
+
+    /**
+     * Deletes this object and any data it contains.
+     */
+    ~Object();
+
+    /**
      *  Check if this objec "equals" another"
      *  Sublasses can define what equal means in their context
      *  @param other       the object to compare to
