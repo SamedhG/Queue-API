@@ -12,6 +12,17 @@
  */
 class Queue : public Object {
    public:
+
+    /**
+     * Creates an empty Queue.
+     */
+    Queue();
+
+    /**
+     * Deletes every element in this Queue and this Queue.
+     */
+    ~Queue();
+
     /**
      * Add the given object o to the back of this queue.
      * Takes ownership of o.
