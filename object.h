@@ -21,7 +21,7 @@ class Object {
     virtual ~Object();
 
     /**
-     *  Check if this objec "equals" another"
+     *  Check if this objec "equals" another via deep equality.
      *  Sublasses can define what equal means in their context
      *  @param other       the object to compare to
      *  @return true if they are equal else false
