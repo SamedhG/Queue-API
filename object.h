@@ -1,37 +1,29 @@
-// lang:CwC
+//lang::CwC
 #pragma once
 
 #include <cstdlib>
 
 /**
- * Represents a basic object class that all classes inherit from
- * Author: SamedhG <gupta.sam@husky.neu.edu>, thomasharmon808
- * <harmon.t@huskt.neu.edu>
+ * A class that represents the top of the object hierarchy.
+ * author: chasebish 
+ * github: https://github.com/chasebish/cwc_object_string
  */
 class Object {
-  public:
-    /**
-     * Constructs a new Object.
-     */
-    Object();
+public:
+  /** CONSTRUCTORS & DESTRUCTORS **/
 
-    /**
-     * Deletes this object and any data it contains.
-     */
-    virtual ~Object();
+  /* Default Object constructor */
+  Object();
 
-    /**
-     *  Check if this objec "equals" another via deep equality.
-     *  Sublasses can define what equal means in their context
-     *  @param other       the object to compare to
-     *  @return true if they are equal else false
-     */
-    virtual bool equals(Object* other);
+  /* Default Object destructor, to be overriden by subclasses */
+  virtual ~Object();
 
-    /**
-     * Return the hash of this object.
-     * Inheriting classes must override this if equals is overriden.
-     * @return the hashcode
-     */
-    virtual size_t hash();
+
+  /** VIRTUAL METHODS **/
+
+  /* Returns whether two objects are equal, to be overriden by subclasses */
+  virtual bool equals(Object* const obj);
+
+  /* Returns an object's hash value. Identical objects should have identical hashes */
+  virtual size_t hash();
 };

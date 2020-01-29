@@ -1,50 +1,51 @@
-// lang: CwC
+//lang::CwC
 #pragma once
 
 #include "object.h"
+#include <cstdlib>
+#include <cstring>
+#include <cstdio> 
 
 /**
- * Wrapper for char arrays with convinience methods
- * Author samedh <gupta.sam@husky.neu.edu>, thomasharmon808
- * <harmon.t@husky.neu.edu>
+ * An immutable String class representing a char*
+ * author: chasebish 
+ * github: https://github.com/chasebish/cwc_object_string
  */
 class String : public Object {
-   public:
-    /**
-     * Construct a new string given a pointer to a mutable array of characters.
-     * Creates a copy of the data in c.
-     * @param c a pointer to an array of characters.
-     */
-    String(char* c);
+public:
+  /** CONSTRUCTORS & DESTRUCTORS **/
 
-    /**
-     * Construct a new string given a pointer to an immutable array of characters.
-     * Creates a copy of the data in c.
-     * @param c a pointer to an array of characters.
-     */
-    String(const char* c);
+  /* Creates a String copying s */
+  String(const char* s);
 
-    /**
-     * A destructor, which deletes the data in this String.
-     */
-    ~String();
+  /* Copies a String copying the value from s */
+  String(String* const s);
 
-    /**
-     * Get the length of this String.
-     * @return the length of this String.
-     */
-    size_t length();
+  /* Clears String from memory */
+  ~String();
 
-    /**
-     * An implementation must override this method
-     * @param other   The object to check for equality with this String.
-     * @returns true if other is equal to this String.
-     */
-    bool equals(Object* other);
 
-    /**
-     * An implementation must override this method
-     * @returns the hash code of this object.
-     */
-    size_t hash();
+  /** INHERITED METHODS **/
+
+  /* Inherited from Object, generates a hash for a String */
+  size_t hash();
+
+  /* Inherited from Object, checks equality between an String and an Object */
+  bool equals(Object* const obj);
+
+
+  /** STRING METHODS **/
+  
+  /** Compares strings based on alphabetical order
+   * < 0 -> this String is less than String s
+   * = 0 -> this String is equal to String s
+   * > 0 -> this String is greater than String s
+   */
+  int cmp(String* const s);
+
+  /* Creates a new String by combining two existing Strings */
+  String* concat(String* const s);
+
+  /* Returns the current length of the String */
+  size_t size();
 };
