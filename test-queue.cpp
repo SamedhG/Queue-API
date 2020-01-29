@@ -28,10 +28,10 @@ void test_queue() {
     Queue* q = new Queue();
     // test queue.length when empty
     assert(q->length() == 0);
-    // queue.peek when empty
-    // should crash
-    // queue.pop when empty
-    // should crash
+    // queue.peek when empty should return nullptr
+    assert(q->peek() == nullptr);
+    // queue.pop when empty should return nullptr
+    assert(q->pop() == nullptr);
 
     // adding to the queue should increase the length
     String* s1 = new String("hello");

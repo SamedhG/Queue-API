@@ -4,9 +4,10 @@
 #include <cstdlib>
 
 #include "object.h"
+#include "string.h"
 
 /**
- * A data structure representing a First In, First Out list. The data 
+ * A data structure representing a First In, First Out queue. The data 
  * structure contains `Object` pointers that any desired class may extend an 
  * `Object` and be stored in a `Queue`
  */
@@ -34,16 +35,16 @@ class Queue : public Object {
      * Get the object at the head of this queue without removing it.
      * This queue retains ownership of the returned object, meaning users
      * must not delete the object.
-     * Note: The program must terminate if the queue is empty.
+     * Note: Will return nullptr if the queue is empty.
      * @returns The object at the head of the queue.
      */
     virtual Object* peek();
 
     /**
      * Get the object at the head of this queue and removes it from the queue.
-     * This returned object is now owned by the caller and must delete it
+     * This returned object is now owned by the caller, who must delete it
      * when done using it.
-     * Note: The program must terminate if the queue is empty.
+     * Note: Will return nullptr if the queue is empty.
      * @returns The object at the head of the queue.
      */
     virtual Object* pop();
