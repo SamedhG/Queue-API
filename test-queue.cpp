@@ -4,6 +4,7 @@
 #include "queue.h"
 #include "string.h"
 
+
 // Tests for String->length
 void test_string_length() {
     String* s1 = new String("");
@@ -25,7 +26,7 @@ void test_string_equals_hash() {
 }
 
 void test_queue() {
-    Queue* q = new Queue();
+    StringQueue* q = new StringQueue();
     // test queue.length when empty
     assert(q->length() == 0);
     // queue.peek when empty should return nullptr
@@ -65,7 +66,7 @@ void test_queue() {
     assert(q->length() == 1);
 
     // equals works
-    Queue* q2 = new Queue();
+    StringQueue* q2 = new StringQueue();
     String* q2_s2 = new String("World");
     q2->push(q2_s2);
     assert(q->equals(q2));
